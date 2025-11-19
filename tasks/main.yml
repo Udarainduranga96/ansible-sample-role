@@ -1,0 +1,13 @@
+---
+# tasks file for httpd
+- name: Install the latest version of Apache
+  ansible.builtin.dnf:
+    name: httpd
+    state: latest
+- name: Copy file with owner and permissions
+  ansible.builtin.copy:
+    src: ./files/index.html
+    dest: /var/www/html
+    owner: root
+    group: root
+    mode: '0775'
